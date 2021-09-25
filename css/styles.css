@@ -1,0 +1,293 @@
+:root{
+    --LimeGreen: hsl(163, 72%, 41%);
+    --BrightRed: hsl(356, 69%, 56%);
+
+    --Facebook: hsl(208, 92%, 53%);
+    --Twitter: hsl(203, 89%, 53%);
+    --Instagram: linear-gradient(90deg, hsl(37, 97%, 70%), hsl(329, 70%, 58%));
+    --YouTube: hsl(348, 97%, 39%);
+
+    /* LIGHT THEME */
+    --BGC: hsl(0, 0%, 100%);/* BG */
+    --BGC-TOP: hsl(225, 100%, 98%); /* TOP BG PATTERN */
+    --BGC-CARD: hsl(227, 47%, 96%); /* CARD BG */
+    --TEXT-LIGHT: hsl(228, 12%, 44%); /* TEXT */
+    --TEXT-DARK: hsl(230, 17%, 14%); /* TEXT */
+    --hover: hsl(232, 33%, 91%);
+
+    /* TOGGLE */
+    --Toggle: hsl(230, 22%, 74%);
+    --toggle_hover: linear-gradient(90deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+    
+    /* FONT */
+    --font: 'Inter', sans-serif;
+    --regular: 400;
+    --bold: 700;
+    --small-font-size: 1.2rem; /* username - follower text - rank - percent */
+    --title: 2.4rem;
+    --subtitle: 1.4rem; /* dark text - views title */
+    --followers: 5.7rem;
+    --overview: 2.4rem;
+    --views: 3.2rem;
+    --spacing: 0.516rem;
+    --spacingN: -0.285rem;
+
+}
+@media (min-width: 768px) {
+    :root{
+        --title: 2.8rem;
+    }
+}
+.dark__theme{
+    --BGC: hsl(230, 17%, 14%);/* BG */
+    --BGC-TOP: hsl(232, 19%, 15%); /* TOP BG PATTERN */
+    --BGC-CARD: hsl(228, 28%, 20%); /* CARD BG */
+    --TEXT-LIGHT: hsl(228, 34%, 66%) ; /* TEXT */
+    --TEXT-DARK: hsl(0, 0%, 100%); /* TEXT */
+
+    /* TOGGLE */
+    --Toggle: linear-gradient(90deg, hsl(210, 78%, 56%), hsl(146, 68%, 55%));
+
+    --hover: hsl(228, 26%, 27%);
+}
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+*,*::after,*::before{
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--font);
+    font-size: var(--small-font-size);
+    font-weight: var(--bold);
+    background-color: var(--BGC);
+    color: var(--TEXT-LIGHT);
+}
+.bg__top{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    min-height: 23.5rem;
+    background: var(--BGC-TOP);
+    border-radius: 0 0 2rem 2rem;
+    z-index: -1;
+}
+h2, h3, p{
+    margin: 0;
+    padding: 0;
+}
+.container{
+    max-width: 111rem;
+    padding: 0 2.4rem;
+    margin: 0 auto;
+}
+@media (min-width: 1024px) {
+    .container {
+        padding: 0;
+    }
+}
+/** HEADER */
+.title{
+    font-size: var(--title);
+    color: var(--TEXT-DARK);
+    margin: 4rem 0 1.2rem 0;
+}
+.subtitle{
+    font-size: var(--subtitle);
+    color: var(--TEXT-LIGHT);
+}
+hr{
+    margin: 2.7rem 0 1.6rem;
+    border: none;
+    height: .5px;
+    background: var(--TEXT-LIGHT);
+}
+.header__toggle{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+.toggle__text{
+    font-size: var(--subtitle);
+    color: var(--TEXT-LIGHT);
+}
+input[type="checkbox"]{
+    -webkit-appearance: none;
+    appearance: none;
+    display: none;
+    visibility: hidden;
+}
+.check{
+    position: relative;
+    width: 4.8rem;
+    height: 2.4rem;
+    border-radius: 1.2rem;
+    background: var(--Toggle);
+    display: flex;
+    cursor: pointer;   
+}
+.check:hover{
+    background: var(--toggle_hover);    
+}
+.check::after{
+    content: '';
+    position: absolute;
+    width: 1.8rem;
+    height: 1.8rem;
+    top: .3rem;
+    right: .3rem;
+    border-radius: 50%;
+    background: var(--BGC);
+    transition: .3s all ease-in-out;
+    
+}
+input[type="checkbox"]:checked ~ .check::after{
+    transform: translateX(-2.4rem);
+}
+@media (min-width: 1024px) {
+    hr{
+        display: none;
+    }
+    header.container{
+        height: 13.6rem;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .header__toggle {
+        gap: 1.5rem;
+        margin-bottom: 0;
+    }
+    .title {
+        margin: 0 0 1.2rem 0;
+    }
+}
+/** GRID SOCIAL CARDS */
+.grid{
+    display: grid;
+    gap: 2.4rem;
+    padding-bottom: 4.8rem;
+}
+@media (min-width: 768px) {
+    .grid{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3rem;
+    }
+}
+@media (min-width: 1024px) {
+    .grid{
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+.card{
+    position: relative;
+    overflow: hidden;
+    background: var(--BGC-CARD);
+    padding: 3.2rem 0 2.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-radius: .5rem;
+    gap: 3rem;
+    transition: .3s all ease;
+}
+.card::after{
+    position: absolute;
+    top: 0;
+    content: '';
+    width: 100%;
+    height: .4rem;
+}
+.facebook.card::after {
+    background: var(--Facebook);
+
+}
+.twitter.card::after {
+    background: var(--Twitter);
+
+}
+.instagram.card::after {
+    background: var(--Instagram);
+
+}
+.youtube.card::after {
+    background: var(--YouTube);
+
+}
+.card__username{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.followers p{
+    font-size: var(--followers);
+    color: var(--TEXT-DARK);
+    letter-spacing: var(--spacingN);
+    margin-bottom: 1.6rem;
+    line-height: .8;
+}
+.followers span{
+    font-weight: var(--regular);
+    text-transform: uppercase;
+    letter-spacing: var(--spacing);
+}
+.rank{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+}
+.up{
+    color: var(--LimeGreen);    
+}
+.down{
+    color: var(--BrightRed);
+}
+/** OVERVIEW CARD */
+.overview{
+    font-size: var(--overview);
+    padding: .7rem 0;
+}
+@media (min-width: 768px) {
+    .overview{
+        grid-column: 1 / -1;
+        padding: .3rem 0 0 0;
+    }
+}
+.overview__card{
+    background: var(--BGC-CARD);
+    border-radius: .5rem;
+    padding: 2.6rem 3.1rem 2.7rem 2.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    transition: .3s all ease;
+}
+.card:hover,
+.overview__card:hover{
+    background: var(--hover);
+    
+}
+.social{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.social p{
+    font-size: var(--subtitle);
+}
+.views{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+.views > p{
+    font-size: var(--views);
+    color: var(--TEXT-DARK);
+    line-height: .8;
+}
