@@ -12,6 +12,7 @@ function toggle(btn, classDark){
     }
     const darkTheme = () => {
         $selectors.forEach(el => el.classList.add(classDark));
+        d.getElementById("toggle").checked = true;
         ls.setItem('theme', "dark");
     }
     
